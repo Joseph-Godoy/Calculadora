@@ -1,0 +1,116 @@
+:root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #6b7280;
+    --accent: #4f46e5;
+    --accent-2: #06b6d4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0b1220;
+    color: #e6eef8;
+    margin: 40px 0;
+    gap: 48px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 0;
+    font-weight: 600;
+    color: #e6eef8;
+}
+
+.contenedor {
+    background-color: #0f1724;
+    width: 550px;
+    height: 500px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+    gap: 16px;
+}
+
+.resultado {
+    background-color: rgba(255,255,255,0.02);
+    width: calc(100% - 10px);
+    height: 64px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 0;
+    font-size: 28px;
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,0.02);
+    color: #e6eef8;
+}
+
+button {
+    width: 100px;
+    height: 80px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    margin: 6px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #e6eef8;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+
+button:hover { transform: translateY(-3px); background-color: rgba(255,255,255,0.02); box-shadow: 0 10px 30px rgba(2,6,23,0.5); }
+button:active { transform: translateY(0); }
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button.operador {
+    background: linear-gradient(180deg, rgba(79,70,229,0.08), rgba(6,182,212,0.04));
+    border-color: rgba(79,70,229,0.12);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+button.BotonBorrar {
+    background: linear-gradient(180deg, rgba(229,70,70,0.08), rgba(212,6,6,0.04));
+    border-color: rgba(229,70,70,0.12);
+    color: #e64e4e;
+    font-weight: 600;
+    width: 80px;
+    height: 55px;
+}
+
+
+
+#igual {
+    background: var(--accent);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 18px rgba(79,70,229,0.18);
+}
+
+#igual:hover { filter: brightness(0.98); }
+
+.boton { background: transparent; }
+
+@media (max-width: 420px) {
+    .resultado { font-size: 28px; min-height: 48px; }
+    button { padding: 12px; font-size: 16px; }
+}
