@@ -29,15 +29,16 @@ h1 {
 
 .contenedor {
     background-color: #0f1724;
-    width: 550px;
-    height: 500px;
+    width: 95%;
+    max-width: 550px;
+    height: auto;
     border-radius: 14px;
     box-shadow: 0 8px 30px rgba(2,6,23,0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 18px;
-    gap: 16px;
+    padding: 14px;
+    gap: 12px;
 }
 
 .resultado {
@@ -55,18 +56,22 @@ h1 {
 }
 
 button {
-    width: 100px;
-    height: 80px;
+    width: 100%;
+    height: 72px;
     font-size: 20px;
     border: none;
     border-radius: 10px;
-    margin: 6px;
+    margin: 0;
     cursor: pointer;
     background-color: transparent;
     color: #e6eef8;
     box-shadow: 0 6px 18px rgba(2,6,23,0.6);
     border: 1px solid rgba(255,255,255,0.04);
     transition: transform .12s ease, background-color .12s ease, box-shadow .12s ease;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover { transform: translateY(-3px); background-color: rgba(255,255,255,0.02); box-shadow: 0 10px 30px rgba(2,6,23,0.5); }
@@ -93,8 +98,9 @@ button.BotonBorrar {
     border-color: rgba(229,70,70,0.12);
     color: #e64e4e;
     font-weight: 600;
-    width: 80px;
-    height: 55px;
+    width: auto;
+    height: 48px;
+    padding: 8px 12px;
 }
 
 
@@ -110,7 +116,26 @@ button.BotonBorrar {
 
 .boton { background: transparent; }
 
+/* Layout for button rows: use grid so buttons adapt to container width */
+.botones { width: 100%; display: flex; flex-direction: column; gap: 8px; }
+.botones .fila1,
+.botones .fila2,
+.botones .fila3,
+.botones .fila4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; }
+
+/* Make the '=' button visually prominent (HTML uses class botonIgual) */
+.botonIgual { background: var(--accent); color: white; font-weight: 600; }
+
+/* Display area tweaks */
+.resultado .display { flex: 1; text-align: right; padding-right: 12px; overflow-x: auto; }
+
 @media (max-width: 420px) {
-    .resultado { font-size: 28px; min-height: 48px; }
-    button { padding: 12px; font-size: 16px; }
+    .resultado { font-size: 22px; min-height: 48px; }
+    .contenedor { padding: 12px; gap: 10px; }
+    button { height: 56px; font-size: 16px; padding: 8px; }
+    .botones .fila1,
+    .botones .fila2,
+    .botones .fila3,
+    .botones .fila4 { gap: 6px; }
+    h1 { font-size: 36px; }
 }
