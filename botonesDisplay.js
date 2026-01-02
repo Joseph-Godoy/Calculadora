@@ -1,8 +1,4 @@
-//calculadora
-
-let NumeroViejo = 0;
-let operador = "";
-let NumeroActual = 0;
+import {conversionNotacion} from './notacionPolacaInversa.js';
 
 // Borrar numeros
 
@@ -10,12 +6,9 @@ const borrar = document.querySelector(".BotonBorrar");
 
 borrar.addEventListener("click", function() {
     texto.textContent = "";
-    NumeroActual = 0;
-    NumeroViejo = 0;
-    operador = "";
 })
 
-// Botones display
+// Variables de los botones
 
 const texto = document.querySelector(".display");
 
@@ -31,6 +24,14 @@ const boton3 = document.querySelector(".boton3");
 const boton0 = document.querySelector(".boton0");
 const botonPunto = document.querySelector(".botonPunto");
 
+const botonMas = document.querySelector(".botonMas");
+const botonMenos = document.querySelector(".botonMenos");
+const botonMultiplicacion = document.querySelector(".botonMultiplicacion");
+const botonDivision = document.querySelector(".botonDivision"); 
+
+const botonIgual = document.querySelector(".botonIgual");
+
+// Botones de numeros
 
 boton7.addEventListener("click", function() {
     texto.textContent += boton7.textContent;
@@ -66,57 +67,29 @@ botonPunto.addEventListener("click", function() {
     texto.textContent += botonPunto.textContent;
 });
 
-// Sumar
-
-const botonMas = document.querySelector(".botonMas");
-const botonMenos = document.querySelector(".botonMenos");
-const botonMultiplicacion = document.querySelector(".botonMultiplicacion");
-const botonDivision = document.querySelector(".botonDivision"); 
+// Botones de operadores
 
 botonMas.addEventListener("click", function() {
-        NumeroViejo = texto.textContent;
-        texto.textContent = "";
-        operador = "+";
+    texto.textContent += botonMas.textContent
 })
 
 botonMenos.addEventListener("click", function() {
-    NumeroViejo = texto.textContent;
-    texto.textContent = "";
-    operador = "-";
+    texto.textContent += botonMenos.textContent
 })
 
 botonMultiplicacion.addEventListener("click", function() {
-    NumeroViejo = texto.textContent;
-    texto.textContent = "";
-    operador = "*";
+    texto.textContent += botonMultiplicacion.textContent
 })
 
 botonDivision.addEventListener("click", function() {
-    NumeroViejo = texto.textContent;
-    texto.textContent = "";
-    operador = "/";
+    texto.textContent += botonDivision.textContent
 })
 
 // Igual
 
-const botonIgual = document.querySelector(".botonIgual");
 botonIgual.addEventListener("click", function() {
-    NumeroActual = texto.textContent;
-    calcular();
+    let calculo = conversionNotacion(texto.textContent);
+    texto.textContent = calculo
 });
-
-//Calcular
-
-function calcular() {
-    if (operador === "+") {
-        texto.textContent = parseFloat(NumeroViejo) + parseFloat(NumeroActual);
-    } else if (operador === "-") {
-        texto.textContent = parseFloat(NumeroViejo) - parseFloat(NumeroActual);
-    } else if (operador === "*") {
-        texto.textContent = parseFloat(NumeroViejo) * parseFloat(NumeroActual);
-     } else if (operador === "/") {
-        texto.textContent = parseFloat(NumeroViejo) / parseFloat(NumeroActual);
-     }
-}
 
 
