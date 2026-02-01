@@ -1,19 +1,19 @@
 
 export function conversionNotacion(Expresion) {
-   let pilaFinal = [];
-   let pilaOperadores = [];
-   let precedencia = {
+    let pilaFinal = [];
+    let pilaOperadores = [];
+    let precedencia = {
         '+': 1,
         '-': 1,
         '*': 2,
         '/': 2
     };
 
-    let tokens = Expresion.match(/\d+|[+\-*/]/g);
+    let tokens = Expresion.match(/(\d*\.?\d+)|[+\-*/]/g) || [];
 
     for (let elemento of tokens) {
         if (!isNaN(elemento)) {
-            pilaFinal.push(elemento);
+            pilaFinal.push(parseFloat(elemento));
         } else {
             while (pilaOperadores.length > 0 && precedencia[pilaOperadores[pilaOperadores.length - 1]] >= precedencia[elemento]) {
                 pilaFinal.push(pilaOperadores.pop());
@@ -32,7 +32,7 @@ function calculoNotacion(Expresion) {
     let pilaCalculo = []
 
     for (let elemento of Expresion) {
-        if (!isNaN(elemento)){
+        if (!isNaN(elemento)) {
             pilaCalculo.push(elemento);
             console.log(pilaCalculo)
         } else {
